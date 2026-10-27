@@ -1,0 +1,3 @@
+O código apresenta possíveis erros e problemas que precisam ser corrigidos.
+Além disso, existem algumas melhorias que podem ser feitas para tornar o código
+mais eficiente e legível. Ainda farei alterações para um melhor funcionamento. 

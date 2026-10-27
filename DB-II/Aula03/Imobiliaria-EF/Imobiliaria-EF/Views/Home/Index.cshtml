@@ -1,0 +1,34 @@
+﻿@model ICollection<Imobiliaria_EF.Models.Imoveis>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Imoveis Disponíveis</h1>
+    <table class="table rable-responsive table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Número Quartos</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Id</td>
+                    <td>@i.Nome</td>
+                    <td>@i.Descricao</td>
+                    <td>@i.NumeroQuartos</td>
+                    <td>@i.Valor.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

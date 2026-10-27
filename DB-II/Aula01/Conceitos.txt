@@ -1,0 +1,8 @@
+Aula 01/08
+
+Um ORM (Object Relational Mapping) é uma técnica de desenvolvimento de software que facilita a interação entre aplicações orientadas a objetos e bancos de dados relacionais.
+Ele atua como uma camada de abstração, permitindo que os desenvolvedores trabalhem com objetos em seus códigos, enquanto o ORM lida com a comunicação e as operações no Banco de Dados.
+
+Entidade: Representa o modelo de domínio, em uma forma de Tabelas, são substantivos de problemas, o qual eu abstraio da realidade e trago para o Banco de Dados.
+
+(LocalDb)\MSSQLLocalDB

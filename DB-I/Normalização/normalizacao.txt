@@ -1,0 +1,106 @@
+NORMALIZAÇÃO
+
+Serve para analisar tabelas e organizá-las de modo que sua estrutura seja simples, relacional e estável,
+para que o gerenciamento possa ser eficiente e seguro. Os objetivos são para evitar a perda e repetição 
+de informação e atingir uma forma de representação adequada para que se deseja armazenar.
+
+Técnica empregada para melhorar as estruturas de dados resultantes de um projeto de dados do sistema.
+Evita problemas e redundância e anomalia através da decomposição de uma entidade, em uma ou mais
+entidades. As Formas Normais (FN) são as regras de normalização e podem ocasionar uma proliferação
+de entidades que nem sempre é o ideal do ponto de vista de performances, devido ser balanceadas as 
+vantagens e desvantagens antes da efetivação dos resultador de uma FN(NF).
+
+Assim, a normalização é um processo sistemático de geração de tabelas, podendo ser aplicado as regras
+que vão da primeira a quinta FN. Em grande parte dos casos, a aplicação da terceira FN já produz um
+conjunto.
+
+Para adequar uma tabela a uma FN, deve-se redesenhar seu formato. A normalização também pode ser
+utilizada para projetar tabelas a partir de documentos, considerando como uma única tabela e
+aplicando as regras.
+
+Ex.: 
+
+(TABELA DESNORMALIZADA)			
+      Nota Fiscal
+	nr nota
+	nome cliente
+	emissor
+	vendedor
+	dt. emissao
+	produto 1
+	produto 2
+	produto 3
+
+--------------------------------------------------------------------------------------
+
+REGRAS FN:
+
+1- Exige que uma tabela não contenha alinhamentos (atributos repetitivos).
+realiza o que se chama de alinhamento, gerando uma tabela com todos os 
+dados coletados em atributos atômicos. A PK dessa tabela formada pela 
+composição da PK de cada tabela aninhada, além da PK da tabela externa.
+Caso existam atributos multivalorados, estes devem se tornar componentes
+na PK, uma vez que os seus valores estarão associados várias vezes com os
+demais dados da tabela. Se existia alinhamento, provavelmente a 1FN não é
+o estado final, uma vez que haverá redundância dos dados da tabela externa.
+Uma tabela só está na 1FN se nenhum dos seus atributos possui domínio multi-
+valorado, ou seja, devem ser eliminados registros de dados repetitivos.
+Na nota fiscal vemos que os produtos são atributos repetidos. 
+
+
+(RELACIONAMENTO DE 1:N)
+Nota Fiscal
+nr nota
+nome Cliente
+endereço
+vendedor
+dt. emissao
+valor total
+
+Item Nota Fiscal
+nr nota
+cod produto
+nome produto
+nome produto
+nome produto
+
+
+2- Exige o entendimento do conceito de dependência funcional(DF).
+Existe DF em uma tabela sempre que um conjunto de um ou mais atributos,
+determina o valor de um ou mais atributos. A regra diz que uma tabela está
+na segunda fórmula se, e somente se, estiver na primeira forma normal, e todo
+atributo não-chave depende funcionalmente de toda PK, e não apenas de parte dela.
+(Deve existir DF de toda PK). Nesse caso, cada atributo não-chave de uma tabela,
+deve ser analisado. Caso seja verificado DF, de parte da PK, gera-se uma tabela
+que gera esse atributo não-chave e essa parte da PK (que se torna agora PK completa).
+Se existirem outros atributos não-chave com DF dessa mesma parte da PK, esses serão
+inseridos nesta nova tabela. O resultado é um conjunto de tabelas onde só existem
+DF da PK completa. Obviamente, tabelas com PK simples ou que não possuem atributos
+não-chave já estão na segunda forma (2FN). Mesmo após a aplicação da segunda Forma Normal,
+podem existir problemas de redundâncias e anomalias. 
+
+Aplicação:
+
+Projeção do atributo determinante de produtos, mais os outros atributos que dependem
+apenas dele em outra tabela. A PK será o atributo determinante.
+
+Nota Fiscal
+nr Nota
+id Cliente
+endereço
+vendedor
+data emissao
+valor total
+
+Item Nota
+nr Nota
+cod Produto
+qt Produto
+vl unitario
+vl total
+
+Produto
+cod Produto
+descrição
+un medida
+vl unitario

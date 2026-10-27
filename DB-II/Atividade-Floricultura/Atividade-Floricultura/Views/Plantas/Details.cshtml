@@ -1,0 +1,38 @@
+﻿@model Atividade_Floricultura.Models.Planta
+
+@{
+    ViewData["Title"] = "Detalhes da Planta";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-success">
+        <i class="bi bi-eye-fill"></i> Detalhes da Planta
+    </h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tipo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Tipo)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ValorSensor)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ValorSensor)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.EventoSensor)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.EventoSensor)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning me-2">
+            <i class="bi bi-pencil-square"></i> Editar
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Voltar à Lista
+        </a>
+    </div>
+</div>

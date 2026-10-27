@@ -1,0 +1,45 @@
+﻿@model Atividade_Floricultura.Models.Planta
+
+@{
+    ViewData["Title"] = "Excluir Planta";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <div>
+            <strong>Tem certeza que deseja excluir esta planta?</strong>
+        </div>
+    </div>
+
+    <div class="card border-danger mb-3">
+        <div class="card-header bg-danger text-white">
+            <i class="bi bi-flower1"></i> Detalhes da Planta
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tipo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Tipo)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ValorSensor)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ValorSensor)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.EventoSensor)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.EventoSensor)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger me-2">
+            <i class="bi bi-trash-fill"></i> Excluir
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Voltar à Lista
+        </a>
+    </form>
+</div>

@@ -1,0 +1,56 @@
+﻿@model Atividade_Floricultura.Models.Planta
+
+@{
+    ViewData["Title"] = "Editar Planta";
+}
+
+<div class="container mt-5">
+    <h2 class="text-primary mb-4">
+        <i class="bi bi-pencil-fill"></i> Editar Planta
+    </h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger d-none"></div>
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Tipo" class="form-label fw-bold"></label>
+                    <select asp-for="Tipo" class="form-select" asp-items="ViewBag.TipoPlantaList"></select>
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Nome" class="form-label fw-bold"></label>
+                    <input asp-for="Nome" class="form-control" placeholder="Digite o nome da planta" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ValorSensor" class="form-label fw-bold"></label>
+                    <input asp-for="ValorSensor" class="form-control" placeholder="Valor do sensor" />
+                    <span asp-validation-for="ValorSensor" class="text-danger"></span>
+                </div>
+
+                <input asp-for="EventoSensor" type="hidden" />
+
+                <div class="mt-4 d-flex">
+                    <button type="submit" class="btn btn-primary me-2">
+                        <i class="bi bi-save-fill"></i> Salvar Alterações
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Voltar à Lista
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,29 @@
+﻿@model EF_Teste.Models.Course
+
+@{
+    ViewData["Title"] = "Curso";
+}
+
+<h1>Create</h1>
+
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label" />
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
